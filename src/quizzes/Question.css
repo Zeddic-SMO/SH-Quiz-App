@@ -1,0 +1,16 @@
+.spanStyle {
+  display: block;
+  padding: 15px;
+  margin: 8px 0px;
+  border-radius: 8px;
+  color: #fff;
+  width: 95%;
+  background-color: #218380;
+  cursor: pointer;
+}
+
+.spanStyle:hover {
+  background-color: aliceblue;
+  color: #000;
+  border: 1px solid black;
+}

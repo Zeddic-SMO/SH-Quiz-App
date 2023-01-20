@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react"
+import { QuizContext } from "./quizContext"
+import "./App.css"
+import Question from "./quizzes/Question"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+  let { isLoadQuiz, setIsLoadQuiz } = useContext(QuizContext)
+ 
+
+  const loadQuizQuestions = () => {
+    isLoadQuiz = true
+    setIsLoadQuiz(isLoadQuiz)
+  }
+  const StartCard = () => {
+    return (
+      <div className="container">
+        <h1>Coding Quiz Challenge</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Try to answer the following code-related questions within the time
+          limit.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <p>
+          Keep in mind that incorrect answer will penalize your score/time by
+          ten seconds!
+        </p>
+        <button onClick={loadQuizQuestions}>Start Quiz</button>
+      </div>
+    )
+  }
+  return (
+    <>
+      <Header />
+      <main>{isLoadQuiz ? <Question /> : <StartCard />}</main>
+      <Footer />
+    </>
+  )
 }
 
-export default App;
+export default App
