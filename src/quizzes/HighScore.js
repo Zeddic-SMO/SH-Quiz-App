@@ -9,14 +9,6 @@ const styleDiv = {
   height: "220px",
 }
 
-const btn = {
-  padding: "15px",
-  borderRadius: "8px",
-  border: "none",
-  color: "#fff",
-  backgroundColor: "#218380",
-  fontWeight: "bold",
-}
 function HighScore() {
   let { initials, scores } = useContext(QuizContext)
   return (
